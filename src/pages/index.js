@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import BannerCard from "@/components/BannerCard/BannerCard";
 import Category from "@/components/category/Category";
 import bannerImage from '../../public/headphone.png';
+import ProductCard from "@/components/ProductCard/ProductCard";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -56,12 +57,13 @@ const categoryData2 = [
 export default function Home() {
   return (
     < div className="container">
-    <BannerCard data={bannerImage}/>
+    <BannerCard bannerImage={bannerImage}/>
     <div className="my-[50px]"></div>
     <Category staticContent={categoryData}/>
     <div className="my-[50px]"></div>
     <Category staticContent={categoryData2} containerClass/>
     <div className="my-[50px]"></div>
+    <ProductCard/>
     </div>
   
   );
