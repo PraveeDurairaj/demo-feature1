@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import headPhoneImg from '../../../public/headPhone.png';
-const BannerCard = () => {
+
+const BannerCard = ({bannerImage}) => {
  const data =    {
         productDes: "beats solo",
         headingTitle: "Wireless",
@@ -18,7 +18,7 @@ const BannerCard = () => {
                         {/* <Button variant={"default"}>Shop By Category</Button> */}
                     </div>
                     <div className='order-1 sm:order-2'>
-                        <Image src={data?.img} alt='headPhone' className=' w-[300px] h-[300px] object-contain sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] drop-shadow-[-8px_4px_6px_rgba(0,0,0,.4)] m-auto'></Image>
+                        <Image src={bannerImage} alt='headPhone' className=' w-[300px] h-[300px] object-contain sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] drop-shadow-[-8px_4px_6px_rgba(0,0,0,.4)] m-auto'></Image>
                     </div>
                 </div>
             </div>
