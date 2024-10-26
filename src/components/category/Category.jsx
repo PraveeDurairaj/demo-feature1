@@ -9,7 +9,9 @@ const Category = ({ containerClass, staticContent }) => {
         {
           staticContent?.map((item) => {
             return (
-              <CategoryCard data={item} />
+              <div key={item?.id}>
+                <CategoryCard data={item} />
+              </div>
             )
           })
         }
