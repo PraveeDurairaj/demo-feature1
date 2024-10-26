@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import BannerCard from "@/components/BannerCard/BannerCard";
 import Category from "@/components/category/Category";
-import bannerImage from '../../public/headphone.png'
+import bannerImage from '../../public/headphone.png';
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",

@@ -5,8 +5,7 @@ const BannerCard = ({bannerImage}) => {
  const data =    {
         productDes: "beats solo",
         headingTitle: "Wireless",
-        HeadingTitleTwo: "HEADPH",
-        img: headPhoneImg,
+        HeadingTitleTwo: "HEADPH"
       }
     return (
             <div className='bg-[#dde0e4] rounded-2xl'>
