@@ -2,13 +2,25 @@ import localFont from "next/font/local";
 import BannerCard from "@/components/BannerCard/BannerCard";
 import Category from "@/components/category/Category";
 import OurProduct from "@/components/ourProduct/OurProduct";
+import HighlightProductCard from "@/components/ProductCard/HighlightProductCard";
+import Footer from "@/components/Footer/Footer";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import bannerImage from '../../public/headphone.png';
 import productImage1 from '../../public/productImage1.jpg';
 import productImage2 from '../../public/productImage2.jpg';
 import productImage3 from '../../public/productImage3.jpg';
 import productImage4 from '../../public/productImage4.jpg';
 import watchImg from '../../public/watchImg.png';
-import HighlightProductCard from "@/components/ProductCard/HighlightProductCard";
+import instaIcon from '../../public/instagram.png';
+import linkedinIcon from '../../public/linkedin.png';
+import facebookIcon from  '../../public/facebook.png';
+import locationIcon from  '../../public/location.png';
+import phoneIcon from  '../../public/phone.png';
+import { useEffect } from "react";
+
+
+
 
 
 
@@ -20,47 +32,57 @@ import HighlightProductCard from "@/components/ProductCard/HighlightProductCard"
 const categoryData = [
   {
     id:1,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://t3.ftcdn.net/jpg/03/56/90/08/360_F_356900831_EWiOPqcfmIWoTHoXskCt93tA9X3LujHy.jpg',
-    small:true
+    categoryCardData : [
+      {
+        id:1,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://t3.ftcdn.net/jpg/03/56/90/08/360_F_356900831_EWiOPqcfmIWoTHoXskCt93tA9X3LujHy.jpg',
+        small:true
+      },
+      {
+        id:2,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://www.swatch.com/dw/image/v2/BDNV_PRD/on/demandware.static/-/Library-Sites-swarp-global/default/dw569b4a62/images/Swatch/collections/2024/plp/d_1920x750_mens_watches.jpg',
+        small:true
+      },
+      {
+        id:3,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://media.gettyimages.com/id/641427096/photo/portrait-of-young-woman-in-the-city.jpg?s=612x612&w=gi&k=20&c=Z2mtWUquDtKFC9CPj0dKifpbp-IgkILbVZoZDBbWVao='
+      },
+    ]
   },
   {
     id:2,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://www.swatch.com/dw/image/v2/BDNV_PRD/on/demandware.static/-/Library-Sites-swarp-global/default/dw569b4a62/images/Swatch/collections/2024/plp/d_1920x750_mens_watches.jpg',
-    small:true
-  },
-  {
-    id:3,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://media.gettyimages.com/id/641427096/photo/portrait-of-young-woman-in-the-city.jpg?s=612x612&w=gi&k=20&c=Z2mtWUquDtKFC9CPj0dKifpbp-IgkILbVZoZDBbWVao='
-  },
+    categoryCardData:[
+      {
+        id:1,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://sketchmypic.com/static/images/original.jpg',
+      },
+      {
+        id:2,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://media.istockphoto.com/id/1443305526/photo/young-smiling-man-in-headphones-typing-on-laptop-keyboard.jpg?s=1024x1024&w=is&k=20&c=wcaAuEUMIScsLWVfI8bnuFx5zMSA7XzUs8Hcl07YFbo=',
+
+      },
+      {
+        id:3,
+        title:'Product Name',
+        description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
+        imageUrl:'https://t3.ftcdn.net/jpg/06/29/67/66/360_F_629676676_OiPvDqePlrmhDwMjrnbTAl9NRsCL66bB.jpg'
+      },
+    ],
+    containerClass:true
+  }
+  
 ]
-const categoryData2 = [
-  {
-    id:1,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://sketchmypic.com/static/images/original.jpg',
-    small:true
-  },
-  {
-    id:2,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://media.istockphoto.com/id/1443305526/photo/young-smiling-man-in-headphones-typing-on-laptop-keyboard.jpg?s=1024x1024&w=is&k=20&c=wcaAuEUMIScsLWVfI8bnuFx5zMSA7XzUs8Hcl07YFbo=',
-    small:true
-  },
-  {
-    id:3,
-    title:'Product Name',
-    description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://t3.ftcdn.net/jpg/06/29/67/66/360_F_629676676_OiPvDqePlrmhDwMjrnbTAl9NRsCL66bB.jpg'
-  },
-]
+
 const productData = [
   {
     id:1,
@@ -134,21 +156,122 @@ const HighlightProductCard2 = {
   primary:`#2dcc6f`
  }
 
+ const footerData = [
+  {
+    id:1,
+    fTitle:'Demo',
+    fDescription:[
+      {
+        id:1,
+        text:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores alias cum'
+      },
+      {
+        id:2,
+        text:'Lorem ipsum dolor sit, amet '
+      },
+      {
+        id:3,
+        buttonText:'Vist our recent work'
+      },
+    ]
+  },
+  {
+    id:2,
+    fTitle:'Important Links',
+    fDescription:[
+      {
+        id:1,
+        text:'Home'
+      },
+      {
+        id:2,
+        text:'About'
+      },
+      {
+        id:3,
+        text:'Product',
+      },
+      {
+        id:4,
+        text:'Blog',
+      },
+    ]
+  },
+  {
+    id:3,
+    fTitle:'Quick Links',
+    fDescription:[
+      {
+        id:1,
+        text:'Home'
+      },
+      {
+        id:2,
+        text:'About'
+      },
+      {
+        id:3,
+        text:'Product',
+      },
+      {
+        id:4,
+        text:'Blog',
+      },
+    ]
+  },
+  {
+    id:4,
+    fTitle:'Address',
+    fDescription:[
+      {
+        id:1,
+        text:'madurai tamilnadu',
+        icon:locationIcon,
+      },
+      {
+        id:2,
+        text:'+91 8368379373',
+        icon:phoneIcon,
+      },
+      {
+        id:3,
+        iconList:[
+          instaIcon,
+          linkedinIcon,
+          facebookIcon
+        ]
+      },
+    ]
+  }
+ ]
+
 export default function Home() {
+
+  useEffect(()=>{
+    Aos.init(
+      {
+        duration:800,
+        easing:"ease-in-out-sine",
+        delay:100,
+        offset:100
+      }
+    );
+    Aos.refresh();
+  },[])
   return (
     < div className="container">
     <div className="my-[50px]"></div>
     <BannerCard bannerImage={bannerImage}/>
     <div className="my-[100px]"></div>
     <Category staticContent={categoryData}/>
-    <div className="my-[50px]"></div>
-    <Category staticContent={categoryData2} containerClass/>
     <div className="my-[100px]"></div>
     <HighlightProductCard staticContent= {HighlightProductCard1}/>
     <div className="my-[100px]"></div>
     <OurProduct staticContent={productData}/>
     <div className="my-[100px]"></div>
     <HighlightProductCard staticContent= {HighlightProductCard2}/>
+    <div className="my-[150px]"></div>
+    <Footer staticContent={footerData}/>
     <div className="my-[100px]"></div>
     </div>
   
