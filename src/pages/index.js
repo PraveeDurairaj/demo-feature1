@@ -7,6 +7,8 @@ import productImage1 from '../../public/productImage1.jpg';
 import productImage2 from '../../public/productImage2.jpg';
 import productImage3 from '../../public/productImage3.jpg';
 import productImage4 from '../../public/productImage4.jpg';
+import watchImg from '../../public/watchImg.png';
+import HighlightProductCard from "@/components/ProductCard/HighlightProductCard";
 
 
 
@@ -20,14 +22,14 @@ const categoryData = [
     id:1,
     title:'Product Name',
     description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://sketchmypic.com/static/images/original.jpg',
+    imageUrl:'https://t3.ftcdn.net/jpg/03/56/90/08/360_F_356900831_EWiOPqcfmIWoTHoXskCt93tA9X3LujHy.jpg',
     small:true
   },
   {
     id:2,
     title:'Product Name',
     description:'Use the backdrop-blur-* utilities to control an element’s backdrop blur.',
-    imageUrl:'https://www.shutterstock.com/image-photo/young-happy-cool-woman-she-260nw-2357714761.jpg',
+    imageUrl:'https://www.swatch.com/dw/image/v2/BDNV_PRD/on/demandware.static/-/Library-Sites-swarp-global/default/dw569b4a62/images/Swatch/collections/2024/plp/d_1920x750_mens_watches.jpg',
     small:true
   },
   {
@@ -109,17 +111,45 @@ const productData = [
     ProductImage:productImage1
   },
 ]
+const HighlightProductCard1 = {
+  subText:'30% off',
+  titleText:'FINE SMILE',
+  subText2:'10 Jan to 20 Jan',
+  image:bannerImage,
+  subTextBlod:'Air Solo Bass',
+  titleText2:'Winter Sale',
+  subText3:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis',
+  buttonText:'show now',
+  primary:`#f42c37`
+ }
+const HighlightProductCard2 = {
+  subText:'30% off',
+  titleText:'Happy Hours',
+  subText2:'10 Jan to 20 Jan',
+  image:watchImg,
+  subTextBlod:'Smart solo',
+  titleText2:'Winter Sale',
+  subText3:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reiciendis',
+  buttonText:'show now',
+  primary:`#2dcc6f`
+ }
 
 export default function Home() {
   return (
     < div className="container">
-    <BannerCard bannerImage={bannerImage}/>
     <div className="my-[50px]"></div>
+    <BannerCard bannerImage={bannerImage}/>
+    <div className="my-[100px]"></div>
     <Category staticContent={categoryData}/>
     <div className="my-[50px]"></div>
     <Category staticContent={categoryData2} containerClass/>
-    <div className="my-[50px]"></div>
+    <div className="my-[100px]"></div>
+    <HighlightProductCard staticContent= {HighlightProductCard1}/>
+    <div className="my-[100px]"></div>
     <OurProduct staticContent={productData}/>
+    <div className="my-[100px]"></div>
+    <HighlightProductCard staticContent= {HighlightProductCard2}/>
+    <div className="my-[100px]"></div>
     </div>
   
   );
