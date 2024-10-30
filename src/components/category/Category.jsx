@@ -4,7 +4,7 @@ import CategoryCard from "./CategoryCard";
 
 const Category = ({ staticContent }) => {
   return (
-    <>
+    <div id="Category">
       <h2 className='text-[40px] font-[700] text-center '>Look Of Products</h2>
       <p className='text-[14px] text-gray-400 mb-[50px] text-center'>Enhance Your Look</p>
 
@@ -25,7 +25,7 @@ const Category = ({ staticContent }) => {
           )
         })
       }
-    </>
+    </div>
   )
 }
 
